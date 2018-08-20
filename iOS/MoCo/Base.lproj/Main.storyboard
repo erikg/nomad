@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MoCo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IpB-s8-zT5">
+                                <rect key="frame" x="0.0" y="0.0" width="331.5" height="185.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Left Fwd"/>
+                                <connections>
+                                    <action selector="lf:" destination="BYZ-38-t0r" eventType="touchDown" id="geC-LB-phl"/>
+                                    <action selector="ltu:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="DNi-Tm-7c1"/>
+                                    <action selector="ltu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IRR-CC-V5x"/>
+                                    <action selector="ltu:" destination="BYZ-38-t0r" eventType="touchCancel" id="q1e-nz-9Xl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3G-j7-KR9">
+                                <rect key="frame" x="0.0" y="189.5" width="331.5" height="185.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Left Back"/>
+                                <connections>
+                                    <action selector="lb:" destination="BYZ-38-t0r" eventType="touchDown" id="efE-6m-Lzj"/>
+                                    <action selector="ltu:" destination="BYZ-38-t0r" eventType="touchCancel" id="egy-84-hqN"/>
+                                    <action selector="ltu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hAk-zX-d6m"/>
+                                    <action selector="ltu:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="ybD-iV-ZTu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UnC-Bc-tnF">
+                                <rect key="frame" x="335.5" y="189.5" width="331.5" height="185.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Right Back"/>
+                                <connections>
+                                    <action selector="rb:" destination="BYZ-38-t0r" eventType="touchDown" id="lgY-jt-2el"/>
+                                    <action selector="rtu:" destination="BYZ-38-t0r" eventType="touchCancel" id="2lq-X9-W7Z"/>
+                                    <action selector="rtu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Og-Q6-hvr"/>
+                                    <action selector="rtu:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="JOe-K7-mrA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFt-F6-Id4">
+                                <rect key="frame" x="335.5" y="0.0" width="331.5" height="185.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Right Fwd"/>
+                                <connections>
+                                    <action selector="rf:" destination="BYZ-38-t0r" eventType="touchDown" id="64C-Fs-906"/>
+                                    <action selector="rtu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DxM-h0-hfI"/>
+                                    <action selector="rtu:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="IDw-mh-6e3"/>
+                                    <action selector="rtu:" destination="BYZ-38-t0r" eventType="touchCancel" id="TUj-6a-xVt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="UnC-Bc-tnF" firstAttribute="top" secondItem="D3G-j7-KR9" secondAttribute="top" id="860-sz-aa8"/>
+                            <constraint firstItem="UFt-F6-Id4" firstAttribute="leading" secondItem="UnC-Bc-tnF" secondAttribute="leading" id="8rX-rq-snl"/>
+                            <constraint firstItem="IpB-s8-zT5" firstAttribute="width" secondItem="D3G-j7-KR9" secondAttribute="width" id="9cs-Op-xsL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="D3G-j7-KR9" secondAttribute="bottom" id="Cjz-zJ-pvR"/>
+                            <constraint firstItem="UnC-Bc-tnF" firstAttribute="width" secondItem="IpB-s8-zT5" secondAttribute="width" id="DIL-0j-v8J"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UnC-Bc-tnF" secondAttribute="bottom" id="Gcz-Us-ZL3"/>
+                            <constraint firstItem="D3G-j7-KR9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="J5z-af-ZxN"/>
+                            <constraint firstItem="UFt-F6-Id4" firstAttribute="width" secondItem="IpB-s8-zT5" secondAttribute="width" id="JXm-QY-htI"/>
+                            <constraint firstItem="IpB-s8-zT5" firstAttribute="bottom" secondItem="UFt-F6-Id4" secondAttribute="bottom" id="Tz6-8v-W2F"/>
+                            <constraint firstItem="UFt-F6-Id4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="U9d-Yh-gWL"/>
+                            <constraint firstItem="IpB-s8-zT5" firstAttribute="height" secondItem="D3G-j7-KR9" secondAttribute="height" id="UVx-aE-GZt"/>
+                            <constraint firstItem="UnC-Bc-tnF" firstAttribute="height" secondItem="IpB-s8-zT5" secondAttribute="height" id="Xh2-Lf-Edo"/>
+                            <constraint firstItem="UFt-F6-Id4" firstAttribute="height" secondItem="IpB-s8-zT5" secondAttribute="height" id="aqS-HR-eJW"/>
+                            <constraint firstItem="IpB-s8-zT5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bRn-1b-Pso"/>
+                            <constraint firstItem="D3G-j7-KR9" firstAttribute="top" secondItem="IpB-s8-zT5" secondAttribute="bottom" constant="4" id="fdc-Er-ZRr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UFt-F6-Id4" secondAttribute="trailing" id="flF-rm-ksB"/>
+                            <constraint firstItem="IpB-s8-zT5" firstAttribute="trailing" secondItem="D3G-j7-KR9" secondAttribute="trailing" id="gpV-K3-4kR"/>
+                            <constraint firstItem="IpB-s8-zT5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oU4-6t-yaN"/>
+                            <constraint firstItem="UFt-F6-Id4" firstAttribute="leading" secondItem="IpB-s8-zT5" secondAttribute="trailing" constant="4" id="qoG-iB-xf0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UnC-Bc-tnF" secondAttribute="trailing" id="uzc-pP-Kh4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

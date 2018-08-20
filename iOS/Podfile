@@ -1,0 +1,18 @@
+platform :ios, '11.0'
+
+target 'MoCo' do
+  use_frameworks!
+
+  pod 'Crashlytics'
+  pod 'Alamofire'
+  pod 'SwiftSocket'
+
+  target 'MoCoTests' do
+    inherit! :search_paths
+  end
+
+  target 'MoCoUITests' do
+    inherit! :search_paths
+  end
+
+end
