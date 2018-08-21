@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <pigpio.h>
 
@@ -9,7 +10,7 @@
 #define MILLISECONDS_TO_SECONDS (1.0 / 1e3)
 #define MICROSECONDS_TO_SECONDS (1.0 / 1e6)
 
-int 
+int
 moco_init() {
 	if (gpioInitialise() < 0) {
 		return EXIT_FAILURE;
@@ -22,13 +23,13 @@ moco_init() {
 	return EXIT_SUCCESS;
 }
 
-int 
+int
 moco_cleanup() {
 	gpioTerminate();
 	return EXIT_SUCCESS;
 }
 
-void 
+void
 moco_momo(signed char left, signed char right) {
 	if (left > 0) {
 		gpioWrite(MOTOR_A_1, 1);

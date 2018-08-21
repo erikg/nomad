@@ -38,7 +38,7 @@ net_listen(int port, void (*callback)(unsigned char *)) {
 			if(!strncmp((const char *)buf,"QUIT",4)) {
 				close(sock);
 				return 0;
-			}	
+			}
 			callback(buf);
 		} else {
 			printf("Nothing\n");
