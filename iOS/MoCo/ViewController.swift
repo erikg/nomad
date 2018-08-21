@@ -8,25 +8,34 @@
 
 import UIKit
 
+fileprivate func sq(_ x:CGFloat) -> CGFloat { return x * x }
+
 class ViewController: UIViewController {
-    var left:Int8 = 0
-    var right:Int8 = 0
+    @IBOutlet private weak var leftBar:TreadControl!
+    @IBOutlet private weak var rightBar:TreadControl!
 
     var timer:Timer?
 
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) {
-            timer in
-            NetManager.shared.send(self.left,self.right)
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { _ in
+            let left = self.leftBar.value / 12.7
+            let right = self.rightBar.value / 12.7
+            let ldirscale:CGFloat = left < 0 ? -1 : 1
+            let rdirscale:CGFloat = right < 0 ? -1 : 1
+
+
+            let left8:Int8 = Int8(ldirscale * left * left)
+            let right8:Int8 = Int8(rdirscale * right * right)
+            NetManager.shared.send(left8, right8)
         }
     }
 
-    @IBAction func lf(_ sender:UIControl?) { self.left = Int8.max }
-    @IBAction func lb(_ sender:UIControl?) { self.left = Int8.min }
-    @IBAction func rf(_ sender:UIControl?) { self.right = Int8.max }
-    @IBAction func rb(_ sender:UIControl?) { self.right = Int8.min }
-
-    @IBAction func ltu(_ sendr:UIControl?) { self.left = 0 }
-    @IBAction func rtu(_ sendr:UIControl?) { self.right = 0 }
+    @IBAction
+    func touchUp(_ sender:UIControl?) {
+        if let slider = sender as? UISlider {
+            slider.setValue(0, animated: true)
+        }
+    }
 }

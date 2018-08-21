@@ -15,6 +15,7 @@
 		03B67B64212A2D4000F8B8FF /* MoCoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B67B63212A2D4000F8B8FF /* MoCoTests.swift */; };
 		03B67B6F212A2D4000F8B8FF /* MoCoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B67B6E212A2D4000F8B8FF /* MoCoUITests.swift */; };
 		03B67B7D212A2F3600F8B8FF /* NetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B67B7C212A2F3600F8B8FF /* NetManager.swift */; };
+		03BBBA17212E0CCC003DF05B /* TreadControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BBBA16212E0CCC003DF05B /* TreadControl.swift */; };
 		2EB4DF04FC037B95034F775F /* Pods_MoCoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B260A771D2964E4E7E2609 /* Pods_MoCoTests.framework */; };
 		83202F93647F7EC20931CD7A /* Pods_MoCoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A451862B21BDBB2C54FA8B3 /* Pods_MoCoUITests.framework */; };
 		DB2458139017E4171F1B3334 /* Pods_MoCo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD2AA60C372B427723D74CE /* Pods_MoCo.framework */; };
@@ -52,6 +53,7 @@
 		03B67B6E212A2D4000F8B8FF /* MoCoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCoUITests.swift; sourceTree = "<group>"; };
 		03B67B70212A2D4000F8B8FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03B67B7C212A2F3600F8B8FF /* NetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetManager.swift; sourceTree = "<group>"; };
+		03BBBA16212E0CCC003DF05B /* TreadControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreadControl.swift; sourceTree = "<group>"; };
 		5BC3C8241E252E792D36E559 /* Pods-MoCo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoCo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoCo/Pods-MoCo.debug.xcconfig"; sourceTree = "<group>"; };
 		5CD2AA60C372B427723D74CE /* Pods_MoCo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoCo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A451862B21BDBB2C54FA8B3 /* Pods_MoCoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoCoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,10 +120,11 @@
 			children = (
 				03B67B4E212A2D3F00F8B8FF /* AppDelegate.swift */,
 				03B67B7C212A2F3600F8B8FF /* NetManager.swift */,
+				03BBBA16212E0CCC003DF05B /* TreadControl.swift */,
 				03B67B50212A2D3F00F8B8FF /* ViewController.swift */,
 				03B67B52212A2D3F00F8B8FF /* Main.storyboard */,
-				03B67B55212A2D4000F8B8FF /* Assets.xcassets */,
 				03B67B57212A2D4000F8B8FF /* LaunchScreen.storyboard */,
+				03B67B55212A2D4000F8B8FF /* Assets.xcassets */,
 				03B67B5A212A2D4000F8B8FF /* Info.plist */,
 			);
 			path = MoCo;
@@ -383,6 +386,7 @@
 			files = (
 				03B67B51212A2D3F00F8B8FF /* ViewController.swift in Sources */,
 				03B67B7D212A2F3600F8B8FF /* NetManager.swift in Sources */,
+				03BBBA17212E0CCC003DF05B /* TreadControl.swift in Sources */,
 				03B67B4F212A2D3F00F8B8FF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
