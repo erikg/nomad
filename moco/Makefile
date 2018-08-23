@@ -9,6 +9,9 @@ all: ${BINS}
 moco: ${OBJS}
 	gcc ${CFLAGS} -o $@ $^ -lpigpio -lrt
 
-.PHONY : clean
+.PHONY : clean install
 clean:
 	${RM} ${OBJS} ${BINS}
+
+install: moco
+	sudo install -s -m 4750 -o root -g gpio moco /usr/local/bin/moco

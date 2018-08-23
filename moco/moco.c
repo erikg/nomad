@@ -4,11 +4,31 @@
 
 #define MOTOR_A_1 21
 #define MOTOR_A_2 20
+#define MOTOR_A_PWM 16
 #define MOTOR_B_1 26
 #define MOTOR_B_2 19
+#define MOTOR_B_PWM 13
+
+#define MAX_PWM 120
 
 #define MILLISECONDS_TO_SECONDS (1.0 / 1e3)
 #define MICROSECONDS_TO_SECONDS (1.0 / 1e6)
+
+//#define CLAMP(x, min, max) ((x) < (min) ? (min) : ((x) > (max)) ? (max) : (x))
+int CLAMP(int x, int min, int max) {
+	if (x < min) { return min; }
+	if (x > max) { return max; }
+	return x;
+}
+
+void
+init_motor(int en, int in1, int in2) {
+	gpioSetMode(in1, PI_OUTPUT);
+	gpioSetMode(in2, PI_OUTPUT);
+	gpioSetMode(en, PI_OUTPUT);
+	gpioSetPWMrange(en, MAX_PWM);
+	gpioSetPWMfrequency(en, 50);
+}
 
 int
 moco_init() {
@@ -16,10 +36,8 @@ moco_init() {
 		return EXIT_FAILURE;
 	}
 
-	gpioSetMode(MOTOR_A_1, PI_OUTPUT);
-	gpioSetMode(MOTOR_A_2, PI_OUTPUT);
-	gpioSetMode(MOTOR_B_1, PI_OUTPUT);
-	gpioSetMode(MOTOR_B_2, PI_OUTPUT);
+	init_motor(MOTOR_A_PWM, MOTOR_A_1, MOTOR_A_2);
+	init_motor(MOTOR_B_PWM, MOTOR_B_1, MOTOR_B_2);
 	return EXIT_SUCCESS;
 }
 
@@ -29,27 +47,28 @@ moco_cleanup() {
 	return EXIT_SUCCESS;
 }
 
+void tread_control(int val, int m1, int m2, int pwm) {
+	int aval = abs(val);
+	int cval = CLAMP(aval, 0, MAX_PWM);
+	if (aval < 10) { 		// STOP
+//		gpioWrite(m1, 0);
+//		gpioWrite(m2, 0);
+		gpioPWM(pwm, 0);
+	} else if (val > 0) { 	// FORWARD
+		gpioWrite(m1, 1);
+		gpioWrite(m2, 0);
+		gpioPWM(pwm, cval);
+	} else {			// BACKWARD
+		gpioWrite(m1, 0);
+		gpioWrite(m2, 1);
+		gpioPWM(pwm, cval);
+	}
+}
+
+#define TREAD_CONTROL(tread, M1, M2, M_PWM) tread_control(tread,M1,M2,M_PWM)
+
 void
 moco_momo(signed char left, signed char right) {
-	if (left > 0) {
-		gpioWrite(MOTOR_A_1, 1);
-		gpioWrite(MOTOR_A_2, 0);
-	} else if (left < 0) {
-		gpioWrite(MOTOR_A_1, 0);
-		gpioWrite(MOTOR_A_2, 1);
-	} else {
-		gpioWrite(MOTOR_A_1, 0);
-		gpioWrite(MOTOR_A_2, 0);
-	}
-
-	if (right > 0) {
-		gpioWrite(MOTOR_B_1, 1);
-		gpioWrite(MOTOR_B_2, 0);
-	} else if (right < 0) {
-		gpioWrite(MOTOR_B_1, 0);
-		gpioWrite(MOTOR_B_2, 1);
-	} else {
-		gpioWrite(MOTOR_B_1, 0);
-		gpioWrite(MOTOR_B_2, 0);
-	}
+	TREAD_CONTROL(left, MOTOR_A_1, MOTOR_A_2, MOTOR_A_PWM);
+	TREAD_CONTROL(right, MOTOR_B_2, MOTOR_B_1, MOTOR_B_PWM);
 }
