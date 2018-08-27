@@ -1,0 +1,6 @@
+iOS/build/
+*.o
+*.bak
+*~
+moco/moco
+.DS_Store
