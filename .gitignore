@@ -1,6 +1,6 @@
+**/*.1
+**/*.bak
+**/*.o
+**/*~
+**/.DS_Store
 iOS/build/
-*.o
-*.bak
-*~
-moco/moco
-.DS_Store

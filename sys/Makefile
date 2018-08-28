@@ -2,11 +2,14 @@ LIBS=-lpigpio -lrt
 CFLAGS=-Wall -pthread
 
 BINS=moco
-OBJS=main.o moco.o net.o test_mode.o
+OBJS=main.o moco.o seco.o
 
 all: ${BINS}
 
-moco: ${OBJS}
+libmoco.a: moco.o
+	ar cruU $@ $^
+
+moco: main.o net.o moco.o
 	gcc ${CFLAGS} -o $@ $^ -lpigpio -lrt
 
 .PHONY : clean install
