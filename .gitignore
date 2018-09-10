@@ -4,3 +4,8 @@
 **/*~
 **/.DS_Store
 iOS/build/
+sys/moco
+sys/seco
+sys/calib
+sys/seco_test
+sys/libsysbus.a
