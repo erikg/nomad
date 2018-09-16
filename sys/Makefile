@@ -1,7 +1,7 @@
 LIBS=-lpigpio -lrt -lm
 CFLAGS=-Wall -pthread
 
-BINS=moco seco_test calib turn turn-to maintain-heading calib-static inclinometer
+BINS=moco seco_test calib turn turn-to maintain-heading calib-static inclinometer compass
 OBJS=main.o moco.o seco.o net.o
 
 all: $(BINS)
@@ -42,6 +42,9 @@ turn-to: turn-to.o libmoco.a libseco.a libsysbus.a
 	gcc $(CFLAGS) -o $@ $^ $(LIBS)
 
 maintain-heading: maintain-heading.o libmoco.a libseco.a libsysbus.a
+	gcc $(CFLAGS) -o $@ $^ $(LIBS)
+
+compass: compass.o libseco.a libsysbus.a
 	gcc $(CFLAGS) -o $@ $^ $(LIBS)
 
 test: seco_test

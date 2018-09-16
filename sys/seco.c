@@ -15,6 +15,7 @@ int mag_handle = 0;
 
 static void
 load_mag_calib(char *filename) {
+	return;
 	FILE *fh = fopen(filename, "r");
 	char *buf[BUFSIZ];
 	fread(buf, 1, BUFSIZ, fh);
