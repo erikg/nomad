@@ -2,12 +2,13 @@
 #include <stdlib.h>
 #include <pigpio.h>
 
-#define MOTOR_A_1 21
-#define MOTOR_A_2 20
-#define MOTOR_A_PWM 16
+#define MOTOR_A_1 5
+#define MOTOR_A_2 6
+#define MOTOR_A_PWM 13
+
 #define MOTOR_B_1 26
-#define MOTOR_B_2 19
-#define MOTOR_B_PWM 13
+#define MOTOR_B_2 16
+#define MOTOR_B_PWM 12
 
 #define MAX_PWM 120
 

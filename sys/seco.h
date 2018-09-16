@@ -10,10 +10,12 @@
 #define PRESSURE	(2 << 3)
 #define TEMP		(2 << 4)
 
+int imu_handle;
 
 int seco_init(int mode);
 float seco_heading();
 void seco_accel(float *v);
+void seco_accel_raw(int16_t *v);
 void seco_gyro(float *v);
 float seco_temp();
 float seco_pressure();

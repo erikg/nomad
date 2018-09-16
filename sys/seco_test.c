@@ -37,7 +37,7 @@ main(int argc, char **argv) {
 //		printf("Press: %g\n", seco_pressure());
 //		printf("Temp: %g \t", seco_temp());
 
-//		printf("<%f,%f,%f>", accel[0], accel[1], accel[3]);
+		printf("A<% 05.1f,% 5.1f,% 5.1f>", accel[0], accel[1], accel[3]);
 
 		printf("\n");
 		usleep(1000000 / RPS);

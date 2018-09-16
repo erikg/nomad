@@ -1,0 +1,10 @@
+*.a
+*.o
+calib
+calib-static
+inclinometer
+maintain-heading
+moco
+seco_test
+turn
+turn-to
