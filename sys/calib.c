@@ -48,9 +48,9 @@ main(int argc, char **argv) {
 	v[1] = floor((min[1] + max[1]) / 2.0);
 	v[2] = floor((min[2] + max[2]) / 2.0);
 
-	snprintf(buf, BUFSIZ, "{%.1f, %.1f, %.1f, %.1f, %.1f, %.1f};\n", 
-			v[0], max[0]-v[0], 
-			v[1], max[1]-v[1], 
+	snprintf(buf, BUFSIZ, "{%.1f, %.1f, %.1f, %.1f, %.1f, %.1f};\n",
+			v[0], max[0]-v[0],
+			v[1], max[1]-v[1],
 			v[2], max[2]-v[2]);
 
 	if (argc == 2) {

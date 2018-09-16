@@ -8,7 +8,7 @@
 
 #include "BMP280.h"
 
-int 
+int
 BMP280_init(int bus, uint8_t address, int mode) {
 	int handle = i2cOpen(bus, address, 0);
 
@@ -24,17 +24,17 @@ BMP280_init(int bus, uint8_t address, int mode) {
 	return handle;
 }
 
-float 
+float
 BMP280_get_temperature(int handle) {
 	return 42.0;
 }
 
-float 
+float
 BMP280_get_pressure(int handle) {
 	return 69.0;
 }
 
-int 
+int
 BMP280_shutdown(int handle) {
 	return i2cClose(handle) == handle;
 }

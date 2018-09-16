@@ -12,7 +12,7 @@
 
 #define POWER 30
 
-float 
+float
 normalizeAngleDegrees(float angle) {
 	float a = angle;
 	while(a<0) a+=360;
@@ -26,7 +26,7 @@ turn_power(float a) {
 		return 70;
 	if (a > 55)
 		return 50;
-	if (a > 25) 
+	if (a > 25)
 		return 40;
 	return 35;
 }

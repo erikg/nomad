@@ -35,9 +35,9 @@ main(int argc, char **argv) {
 
 
 	tot = 0;
-	for(i=0;i<3;i++) { 
-		bigAccel[i] = 0.0; 
-//		bigGyro[i] = 0.0; 
+	for(i=0;i<3;i++) {
+		bigAccel[i] = 0.0;
+//		bigGyro[i] = 0.0;
 	}
 	while(counter-- > 0) {
 		int16_t vect[3];
@@ -49,7 +49,7 @@ main(int argc, char **argv) {
 		// seco_gyro((float *)gyro);
 		for (i=0;i<3;i++) {
 			bigAccel[i] += accel[i];
-		//	bigGyro[i] += gyro[i];	
+		//	bigGyro[i] += gyro[i];
 		}
 		tot++;
 

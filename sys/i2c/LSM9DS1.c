@@ -8,7 +8,7 @@
 
 #include "LSM9DS1.h"
 
-int 
+int
 LSM9DS1_init(int bus, uint8_t address, int mode) {
 	int handle = i2cOpen(bus, address, 0);
 
@@ -21,7 +21,7 @@ LSM9DS1_init(int bus, uint8_t address, int mode) {
 	}
 	if (whoami == 0x68 && (mode & ACCEL)) {
 		int res;
-		printf("Setting up accelerometer");	
+		printf("Setting up accelerometer");
 		res = i2cWriteByteData(handle, 0x20, 0x38);	// 0b 0011 1000	 CTRL_REG5_XL
 		if (res != 0) { printf("Error 0x20!"); exit(-1); }
 		res = i2cWriteByteData(handle, 0x21, 0x28);	// 0b 0011 1000  CTRL_REG6_XL
@@ -58,7 +58,7 @@ int LSM9DS1_get_accel(int handle, int16_t *vect) {
 	res[2] = (int16_t)(v[4] | v[5] << 8);
 
 	for(i=0;i<3;i++) { vect[i] = res[i]; }
-	
+
 	return 0;
 }
 
@@ -68,8 +68,8 @@ int LSM9DS1_get_accel_calibrated(int handle, float *vect) {
 	int16_t v[3];
 
 	rval = LSM9DS1_get_accel(handle, v);
-	for(i=0;i<3;i++) { 
-		vect[i] = 4.0 * ((float)(v[i]) - calib[i]); 
+	for(i=0;i<3;i++) {
+		vect[i] = 4.0 * ((float)(v[i]) - calib[i]);
 	}
 	return rval;
 }
@@ -79,7 +79,7 @@ LSM9DS1_get_gyro(int handle, float *vect) {
 	return -1;
 }
 
-int 
+int
 LSM9DS1_get_magnometer_raw(int handle, int16_t *vect) {
 	int readRes = 0;
 	uint8_t v[6];
@@ -114,7 +114,7 @@ LSM9DS1_get_magnometer_calibrated(int handle, float *v) {
 }
 
 /* radians clockwise from magnetic north.  negative if fail */
-float 
+float
 LSM9DS1_get_heading(int handle) {
 	float v[3] = {0,0,0};
 	float res = 0.0;
@@ -129,7 +129,7 @@ LSM9DS1_get_heading(int handle) {
 	return res;
 }
 
-int 
+int
 LSM9DS1_shutdown(int handle) {
 	return i2cClose(handle) == handle;
 }

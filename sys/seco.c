@@ -13,7 +13,7 @@ int bmp_handle = 0;
 int imu_handle = 0;
 int mag_handle = 0;
 
-static void 
+static void
 load_mag_calib(char *filename) {
 	FILE *fh = fopen(filename, "r");
 	char *buf[BUFSIZ];
@@ -62,7 +62,7 @@ seco_temp() {
 	return LSM9DS1_temp(mag_handle);
 }
 
-float 
+float
 seco_pressure() {
 	return 0.0;
 }
