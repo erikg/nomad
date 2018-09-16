@@ -8,6 +8,13 @@
 #include "seco.h"
 #include "i2c/LSM9DS1.h"
 
+#ifndef M_PI_2
+#  ifndef M_PI
+#    define M_PI 3.14159265358979323846
+#  endif
+#  define M_PI_2 (M_PI/2.0)
+#endif
+
 #define RPS 4
 #define V3ARGS(x) (x)[0],(x)[1],(x)[2]
 #define V3MAG2(x) ((x)[0]*(x)[0]+(x)[1]*(x)[1]+(x)[2]*(x)[2])
@@ -25,7 +32,7 @@ print_angles(float accel[3]) {
 
 int
 main(int argc, char **argv) {
-	int counter = RPS * 5;	// 5 second default run time
+	int counter = RPS * 5;	/* 5 second default run time */
 	float accel[3];
 
 	if (argc == 2 && isdigit(*argv[1])) { counter = atoi(argv[1]) * RPS; }
@@ -33,7 +40,7 @@ main(int argc, char **argv) {
 
 	if (seco_init(ACCEL) < 0) {
 		fprintf(stderr, "seco initialisation failed.\n");
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	while(counter-- > 0) {
@@ -44,4 +51,5 @@ main(int argc, char **argv) {
 	}
 
 	seco_cleanup();
+	return EXIT_SUCCESS;
 }

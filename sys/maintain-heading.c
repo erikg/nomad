@@ -33,14 +33,17 @@ turn_power(float a) {
 
 void
 cleanup(int sig) {
+	sig+=0;
 	moco_momo(0,0);
-
 	seco_cleanup();
 	moco_cleanup();
 }
 
 void
 report(int sig) {
+	if (sig != SIGUSR2) {
+		printf("bad signal? %d\n", sig);
+	}
 	printf("%g\n", seco_heading());
 }
 
@@ -72,8 +75,10 @@ main(int argc, char **argv) {
 
 	do {
 		float dh, heading = seco_heading();
+		char power;
+
 		dh = normalizeAngleDegrees(heading - target_heading + 540.0) - 180.0;
-		signed char power = (signed char)floor(turn_power(fabs(dh)));
+		power = (char)floor(turn_power(fabs(dh)));
 		if (fabs(dh) < 5) {
 			moco_momo(0,0);
 			sleep(1);

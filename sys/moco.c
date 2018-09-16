@@ -15,7 +15,6 @@
 #define MILLISECONDS_TO_SECONDS (1.0 / 1e3)
 #define MICROSECONDS_TO_SECONDS (1.0 / 1e6)
 
-//#define CLAMP(x, min, max) ((x) < (min) ? (min) : ((x) > (max)) ? (max) : (x))
 int CLAMP(int x, int min, int max) {
 	if (x < min) { return min; }
 	if (x > max) { return max; }
@@ -51,15 +50,13 @@ moco_cleanup() {
 void tread_control(int val, int m1, int m2, int pwm) {
 	int aval = abs(val);
 	int cval = CLAMP(aval, 0, MAX_PWM);
-	if (aval < 10) { 		// STOP
-//		gpioWrite(m1, 0);
-//		gpioWrite(m2, 0);
+	if (aval < 10) { 		/* STOP */
 		gpioPWM(pwm, 0);
-	} else if (val > 0) { 	// FORWARD
+	} else if (val > 0) { 		/* FORWARD */
 		gpioWrite(m1, 1);
 		gpioWrite(m2, 0);
 		gpioPWM(pwm, cval);
-	} else {			// BACKWARD
+	} else {			/* BACKWARD */
 		gpioWrite(m1, 0);
 		gpioWrite(m2, 1);
 		gpioPWM(pwm, cval);

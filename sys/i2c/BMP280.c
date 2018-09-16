@@ -11,26 +11,27 @@
 int
 BMP280_init(int bus, uint8_t address, int mode) {
 	int handle = i2cOpen(bus, address, 0);
-
-//		if (mode & TEMP) {
-//			fprintf(stderr, "Uh oh");
-//			exit(-1);
-//		}
-//		if (mode & PRESSURE) {
-//			fprintf(stderr, "Uh oh");
-//			exit(-1);
-//		}
-
+	if (mode & TEMP) {
+		fprintf(stderr, "Uh oh");
+		exit(-1);
+	}
+	if (mode & PRESSURE) {
+		fprintf(stderr, "Uh oh");
+		exit(-1);
+	}
 	return handle;
 }
 
 float
 BMP280_get_temperature(int handle) {
+/* FIXME */
+	handle+=0;
 	return 42.0;
 }
 
 float
 BMP280_get_pressure(int handle) {
+	handle+=0;
 	return 69.0;
 }
 

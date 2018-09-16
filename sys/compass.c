@@ -27,12 +27,12 @@ main(int argc, char **argv) {
 
 	if (gpioInitialise() < 0) {
 		fprintf(stderr, "pigpio initialisation failed.\n");
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if (seco_init(MAG) < 0) {
 		fprintf(stderr, "seco initialisation failed.\n");
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	while(counter--) {
@@ -41,4 +41,5 @@ main(int argc, char **argv) {
 	}
 
 	seco_cleanup();
+	return EXIT_SUCCESS;
 }

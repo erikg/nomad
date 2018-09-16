@@ -11,7 +11,7 @@
 
 int
 main(int argc, char **argv) {
-	int counter = RPS * 60 * 5;	// 5 minute default run time
+	int counter = RPS * 60 * 5;	/* 5 minute default run time */
 	float accel[3];
 	float gyro[3];
 
@@ -20,12 +20,12 @@ main(int argc, char **argv) {
 	}
 	if (gpioInitialise() < 0) {
 		fprintf(stderr, "pigpio initialisation failed.\n");
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if (seco_init(MAG | ACCEL | GYRO | PRESSURE | TEMP) < 0) {
 		fprintf(stderr, "seco initialisation failed.\n");
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	while(counter-- > 0) {
@@ -34,14 +34,17 @@ main(int argc, char **argv) {
 		seco_gyro((float *)gyro);
 
 		printf("\theading: % 3.1f \t", heading);
-//		printf("Press: %g\n", seco_pressure());
-//		printf("Temp: %g \t", seco_temp());
+/*
+		printf("Press: %g\n", seco_pressure());
+		printf("Temp: %g \t", seco_temp());
+*/
 
-		printf("A<% 05.1f,% 5.1f,% 5.1f>", accel[0], accel[1], accel[3]);
+		printf("A<% 05.1f,% 5.1f,% 5.1f>", accel[0], accel[1], accel[2]);
 
 		printf("\n");
 		usleep(1000000 / RPS);
 	}
 
 	seco_cleanup();
+	return EXIT_SUCCESS;
 }

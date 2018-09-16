@@ -12,7 +12,7 @@ handle_data(unsigned char *data) {
 }
 
 int
-main(int argc, char **argv) {
+main() {
 	int retcode;
 
 	retcode = moco_init();
