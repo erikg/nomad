@@ -13,9 +13,6 @@ int bmp_handle = 0;
 int imu_handle = 0;
 int mag_handle = 0;
 
-static float magOffset[3];
-static float magScale[3];
-
 static void 
 load_mag_calib(char *filename) {
 	FILE *fh = fopen(filename, "r");
